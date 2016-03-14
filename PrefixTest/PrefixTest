@@ -1,0 +1,29 @@
+using System;
+using System.IO;
+using System.Text.RegularExpressions;
+
+class PrefixTest
+{
+    static void Main()
+    {
+        using (StreamReader sr = new StreamReader("../../file.txt"))
+        {
+            using (StreamWriter sw = new StreamWriter("../../result.txt"))
+            {
+                string line = sr.ReadLine();
+                do
+                {
+                    sw.WriteLine(Regex.Replace(line, @"\btest\w*\b", ""));
+                    line = sr.ReadLine();
+                }
+                while (line != null);    
+            }
+        }
+        using (StreamReader sr1 = new StreamReader("../../result.txt"))
+        {
+            String line = sr1.ReadToEnd();
+            Console.WriteLine(line);
+        }
+    }
+}
+
