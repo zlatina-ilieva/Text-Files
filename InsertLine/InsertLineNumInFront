@@ -1,0 +1,33 @@
+/*
+Write a program that reads a text file and inserts line numbers in front of each of its lines. 
+The result should be written to another text file.
+*/
+using System;
+using System.IO;
+
+class InsertLineNumInFront
+{
+    static void Main()
+    {
+        int LineN = 1;
+        using (StreamWriter sw = new StreamWriter("../../new.txt"))
+        {
+            using (StreamReader sr = new StreamReader("../../InsertLineNumInFront.cs"))
+            {
+                string line = sr.ReadLine();
+                do
+                {
+                    sw.WriteLine("{0}.{1}", LineN, line);
+                    LineN++;
+                    line = sr.ReadLine();
+                }
+                while (line != null);               
+            }
+        }
+        using (StreamReader sr1 = new StreamReader("../../new.txt"))
+        {
+            String line = sr1.ReadToEnd();
+            Console.WriteLine(line);
+        }
+    }
+}
