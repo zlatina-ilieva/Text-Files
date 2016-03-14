@@ -1,0 +1,15 @@
+1.using System;
+3.
+5.{
+7.    {
+9.        using (StreamWriter sw = new StreamWriter("../../new.txt"))
+11.            using (StreamReader sr = new StreamReader("../../InsertLineNumInFront.cs"))
+13.                string line = sr.ReadLine();
+15.                {
+17.                    LineN++;
+19.                }
+21.            }
+23.        using (StreamReader sr1 = new StreamReader("../../new.txt"))
+25.            String line = sr1.ReadToEnd();
+27.        }
+29.}
