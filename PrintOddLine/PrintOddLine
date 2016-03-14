@@ -1,0 +1,28 @@
+/*
+Write a program that reads a text file and prints on the console its odd lines.
+*/
+
+using System;
+using System.IO;
+
+class PrintOddLine
+{
+    static void Main()
+    {
+        int LineN = 1;
+        using (StreamReader sr = new StreamReader("../../PrintOddLine.cs"))
+        {
+            string line = sr.ReadLine();
+            do
+            {
+                if (LineN % 2 != 0)
+                {
+                    Console.WriteLine(line);
+                }
+                LineN++;
+                line = sr.ReadLine();
+            }
+            while (line != null);
+        }
+    }
+}
