@@ -1,0 +1,42 @@
+/*
+Write a program that reads a text file containing a list of strings, sorts them and saves them to another text file. Example:
+	Ivan			George
+	Peter	-->	Ivan
+	Maria			Maria
+	George		Peter
+*/
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+class ReadAndSort
+{
+    static void Main()
+    {
+        List<string> lines = new List<string>();
+        using (StreamReader sr = new StreamReader("../../string.txt"))
+        {
+            string line = sr.ReadLine();
+            do
+            {
+                lines.Add(line);
+                line = sr.ReadLine();
+            }
+            while (line != null); 
+        }
+        lines.Sort();
+        using (StreamWriter sw = new StreamWriter("../../result.txt"))
+        {
+            foreach (string line in lines)
+            {
+                sw.WriteLine(line);
+            }
+        }
+        using (StreamReader sr1 = new StreamReader("../../result.txt"))
+        {
+            String line = sr1.ReadToEnd();
+            Console.WriteLine(line);
+        }
+    }
+}
+
