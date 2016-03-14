@@ -1,0 +1,41 @@
+/*
+Write a program that deletes from given text file all odd lines. The result should be in the same file.
+*/
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+class DeleteOddLines
+{
+    static void Main()
+    {
+        List<string> lines = new List<string>();
+        int LineN = 1;
+        using (StreamReader sr = new StreamReader("../../file.txt"))
+        {
+            string line = sr.ReadLine();
+            do
+            {
+                if (LineN % 2!= 0)
+                {
+                    lines.Add(line);
+                }
+                LineN++;
+                line = sr.ReadLine();
+            }
+            while (line != null);
+        }
+        using (StreamWriter sw = new StreamWriter("../../file.txt"))
+        {
+            foreach (string line in lines)
+            {
+                sw.WriteLine(line);
+            }
+        }
+        using (StreamReader sr1 = new StreamReader("../../file.txt"))
+        {
+            String line = sr1.ReadToEnd();
+            Console.WriteLine(line);
+        }
+    }
+}
