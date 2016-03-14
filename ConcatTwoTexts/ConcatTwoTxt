@@ -1,0 +1,33 @@
+/*
+Write a program that concatenates two text files into another text file.
+*/
+using System;
+using System.IO;
+
+class ConcatTwoTxt
+{
+    static void Main()
+    {
+        StreamWriter sw = new StreamWriter("../../file.txt");
+            using (sw)
+            {
+                StreamReader sr1 = new StreamReader("../../ConcatTwoTxt.cs");
+                using (sr1)
+                {
+                    string text1 = sr1.ReadToEnd();
+                    sw.WriteLine(text1);
+                }
+                StreamReader sr2 = new StreamReader("../../ConcatTwoTxt.cs");
+                using (sr2)
+                {
+                    string text2 = sr2.ReadToEnd();
+                    sw.WriteLine(text2);
+                }
+            }
+            using (StreamReader sr3 = new StreamReader("../../file.txt"))
+            {
+                String line = sr3.ReadToEnd();
+                Console.WriteLine(line);
+            }
+        }
+    }
