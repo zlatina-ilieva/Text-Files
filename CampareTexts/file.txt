@@ -1,0 +1,9 @@
+using System;
+using System.IO;
+
+class ConcatTwoTxt
+{
+    static void Main()
+    {
+        StreamWriter sw = new StreamWriter("../../file.txt");
+       
