@@ -1,0 +1,3 @@
+az: 1
+umorena: 1
+ne: 0
